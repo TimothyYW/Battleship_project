@@ -55,4 +55,38 @@ def player_ship_coordinate(playerBoard):
         x4, y4 = (int(input("Enter your coordinate for Submarine: ")))
         playerBoard [x4][y4] = "S"
     
+    return playerBoard
 
+"""
+function for computer opponent
+"""
+
+def comp_ship_coordinate(compBoard):
+    
+    for B in range(5):
+        x = randrange(0, 10)
+        y = randrange(0, 10)
+        compBoard[x][y] = "A"
+    
+    for C in range(3):
+        x1 = randrange(0, 10)
+        y1 = randrange(0, 10)
+        compBoard[x1][y1] = "C"
+
+    for F in range(4):
+        x2 = randrange(0, 10)
+        y2 = randrange(0, 10)
+        compBoard[x2][y2] = "F"
+
+    for A in range(6):
+        x3 = randrange(0, 10)
+        y3 = randrange(0, 10)
+        compBoard[x3][y3] = "A"
+
+    for S in range(2):
+        x4 = randrange(0, 10)
+        y4 = randrange(0, 10)
+        compBoard[x4][y4] = "S"
+
+    return compBoard
+    
