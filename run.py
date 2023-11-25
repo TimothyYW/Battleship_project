@@ -1,68 +1,119 @@
-import random from random
+from random import randrange
+
 
 shipIntial = ["B", "C", "F", "A", "S"]
 shipNames = ["Battleship", "Cruiser", "Frigate", "Aircraft Carrier", "Submarine"]
 
 
-"""
-function getting username for welcome message
-"""
+
 def get_username_name():
+    """
+    function getting username for welcome message
+    """
     user_name = input("Enter your name:")
     print(f"Welcome to the battleship game {user_name}!")
     return user_name
 
-""" 
-function to create a map based on size
-"""
+
 
 map_size = 10
 
+
 def create_battlefield(map_size):
+    """
+    function to create a map based on size
+    """
     return [["_"] * map_size for _ in range(map_size)]
 
-""" 
-function to display current state of the map 
-"""
+
 
 def display_battlefield(board):
+    """ 
+    function to display current state of the map 
+    """
     for row in board:
         print(" ".join(row))
 
-"""
-function for player placement ship
-"""
+
 
 def player_ship_coordinate(playerBoard):
-
+    """
+    function for player placement ship
+    """
     for B in range(5):
-        x, y = (int(input("Enter your coordinate for Battleship:")))
-        playerBoard [x][y] = "B"
+        try:
+            row = int(input("Enter the row for Battleship (0-9): "))
+            col = int(input("Enter the column for Battleship (0-9): "))
+            
+            if 0 <= row < 10 and 0 <= column < 10:
+                playerBoard[row][col] = "B"
+            else:
+                print("Invalid coordinates. Please enter values between 0 and 9.")
+                B -= 1  
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
 
     for C in range(3):
-        x1, y1 = (int(input("Enter your coordinate for Cruiser: ")))
-        playerBoard [x1][y1] = "C"
-
+        try:
+            row = int(input("Enter the row for Cruiser (0-9): "))
+            col = int(input("Enter the column for Cruiser (0-9): "))
+            
+            if 0 <= row < 10 and 0 <= column < 10:
+                playerBoard[row][col] = "C"
+            else:
+                print("Invalid coordinates. Please enter values between 0 and 9.")
+                C -= 1  
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+    
     for F in range(4):
-        x2, y2 = (int(input("Enter your coordinate for Frigate: ")))
-        playerBoard [x2][y2] = "F"
+        try:
+            row = int(input("Enter the row for Frigate (0-9): "))
+            column = int(input("Enter the column for Frigate (0-9): "))
+            
+            if 0 <= row < 10 and 0 <= column < 10 and playerBoard[row][column] == "_":
+                playerBoard[row][column] = "F"
+            else:
+                print("Invalid coordinates. Please enter values between 0 and 9 or choose an unoccupied position.")
+                F -= 1  
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
 
     for A in range(6):
-        x3, y3 = (int(input("Enter your coordinate for Aircraft carrier: ")))
-        playerBoard [x3][y3] = "A"
+        try:
+            row = int(input("Enter the row for Aircraft Carrier (0-9): "))
+            column = int(input("Enter the column for Aircraft Carrier (0-9): "))
+            
+            if 0 <= row < 10 and 0 <= column < 10 and playerBoard[row][column] == "_":
+                playerBoard[row][column] = "A"
+            else:
+                print("Invalid coordinates. Please enter values between 0 and 9 or choose an unoccupied position.")
+                A -= 1  # Decrement A to re-enter the coordinates
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
 
     for S in range(2):
-        x4, y4 = (int(input("Enter your coordinate for Submarine: ")))
-        playerBoard [x4][y4] = "S"
-    
+        try:
+            row = int(input("Enter the row for Submarine (0-9): "))
+            column = int(input("Enter the column for Submarine (0-9): "))
+            
+            if 0 <= row < 10 and 0 <= column < 10 and playerBoard[row][column] == "_":
+                playerBoard[row][column] = "S"
+            else:
+                print("Invalid coordinates. Please enter values between 0 and 9 or choose an unoccupied position.")
+                S -= 1  # Decrement S to re-enter the coordinates
+        except ValueError:
+            print("Invalid input. Please enter a valid integer.")
+
+
     return playerBoard
 
-"""
-function for computer opponent
-"""
 
 def comp_ship_coordinate(compBoard):
-    
+    """
+    function for computer opponent
+    """
+
     for B in range(5):
         x = randrange(0, 10)
         y = randrange(0, 10)
@@ -90,3 +141,14 @@ def comp_ship_coordinate(compBoard):
 
     return compBoard
     
+if __name__ == "__main__":
+    playerboard = create_battlefield(map_size)
+    compboard = create_battlefield(map_size)
+
+    print("Player's turn:")
+    player_ship_coordinate(playerboard)
+    display_battlefield(playerboard)
+
+    print("\nComputer opponent's turn:")
+    comp_ship_coordinate(compboard)
+    display_battlefield(compboard)
