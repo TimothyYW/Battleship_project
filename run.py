@@ -38,8 +38,8 @@ def player_ship_coordinate(playerBoard):
     """
     for B in range(5):
         try:
-            row = int(input("Enter the row for Battleship (0-9): "))
-            col = int(input("Enter the column for Battleship (0-9): "))         
+            row = int(input("Enter the row for Battleship: "))
+            col = int(input("Enter the column for Battleship: "))         
             if 0 <= row < 10 and 0 <= col < 10:
                 playerBoard[row][col] = "B"
             else:
@@ -50,8 +50,8 @@ def player_ship_coordinate(playerBoard):
 
     for C in range(3):
         try:
-            row = int(input("Enter the row for Cruiser (0-9): "))
-            col = int(input("Enter the column for Cruiser (0-9): "))
+            row = int(input("Enter the row for Cruiser: "))
+            col = int(input("Enter the column for Cruiser: "))
             
             if 0 <= row < 10 and 0 <= col < 10:
                 playerBoard[row][col] = "C"
@@ -63,8 +63,8 @@ def player_ship_coordinate(playerBoard):
     
     for F in range(4):
         try:
-            row = int(input("Enter the row for Frigate (0-9): "))
-            col = int(input("Enter the column for Frigate (0-9): "))
+            row = int(input("Enter the row for Frigate: "))
+            col = int(input("Enter the column for Frigate: "))
             
             if 0 <= row < 10 and 0 <= col < 10 and playerBoard[row][col] == "_":
                 playerBoard[row][col] = "F"
@@ -76,8 +76,8 @@ def player_ship_coordinate(playerBoard):
 
     for A in range(6):
         try:
-            row = int(input("Enter the row for Aircraft Carrier (0-9): "))
-            col = int(input("Enter the column for Aircraft Carrier (0-9): "))
+            row = int(input("Enter the row for Aircraft Carrier: "))
+            col = int(input("Enter the column for Aircraft Carrier: "))
             
             if 0 <= row < 10 and 0 <= col < 10 and playerBoard[row][col] == "_":
                 playerBoard[row][col] = "A"
@@ -89,8 +89,8 @@ def player_ship_coordinate(playerBoard):
 
     for S in range(2):
         try:
-            row = int(input("Enter the row for Submarine (0-9): "))
-            col = int(input("Enter the column for Submarine (0-9): "))
+            row = int(input("Enter the row for Submarine: "))
+            col = int(input("Enter the column for Submarine: "))
             
             if 0 <= row < 10 and 0 <= col < 10 and playerBoard[row][col] == "_":
                 playerBoard[row][col] = "S"
@@ -108,33 +108,64 @@ def comp_ship_coordinate(compBoard):
     function for computer opponent
     """
     for _ in range(5):
-        x = randrange(0, 10)
-        y = randrange(0, 10)
-        compBoard[x][y] = "B"
+        row = randrange(0, 10)
+        col = randrange(0, 10)
+        compBoard[row][col] = "B"
     
     for _ in range(3):
-        x1 = randrange(0, 10)
-        y1 = randrange(0, 10)
-        compBoard[x1][y1] = "C"
+        row = randrange(0, 10)
+        col = randrange(0, 10)
+        compBoard[row][col] = "C"
 
     for _ in range(4):
-        x2 = randrange(0, 10)
-        y2 = randrange(0, 10)
-        compBoard[x2][y2] = "F"
+        row = randrange(0, 10)
+        col = randrange(0, 10)
+        compBoard[row][col] = "F"
 
     for _ in range(6):
-        x3 = randrange(0, 10)
-        y3 = randrange(0, 10)
-        compBoard[x3][y3] = "A"
+        row = randrange(0, 10)
+        col = randrange(0, 10)
+        compBoard[row][col] = "A"
 
     for _ in range(2):
-        x4 = randrange(0, 10)
-        y4 = randrange(0, 10)
-        compBoard[x4][y4] = "S"
+        row = randrange(0, 10)
+        col = randrange(0, 10)
+        compBoard[row][col] = "S"
 
     return compBoard
-    
 
+def check_player_hit(compBoard, playerHit):
+"""
+function for player hit or missed on enemy ship
+"""
+    row = int(input("Enter your row: "))
+    col = int(input("Enter your col:"))
+
+    if compBoard[row][col] == "B"
+        playerHit[row][col] == "B"
+        print("Computer: Battleship been hit!")
+    elif: 
+        compBoard[row][col] == "C"
+        playerHit[row][col] == "C"
+        print("Computer: Cruiser been hit!")
+    elif:
+        compBoard[row][col] == "F"
+        playerHit[row][col] == "F"
+        print("Computer: Frigate been hit!")
+    elif:
+        compBoard[row][col] == "A"
+        playerHit[row][col] == "A"
+        print("Computer: Aircraft Carrier been hit")
+    elif:
+        compBoard[row][col] == "S"
+        playerHit[row][col] == "S"
+        print("Computer: Sub been hit")
+    else:
+        playerHit[row][col] == "M"
+        print("Missed me!")
+
+    return playerHit
+    
 if __name__ == "__main__":
     playerboard = create_battlefield(map_size)
     compboard = create_battlefield(map_size)
