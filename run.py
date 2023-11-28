@@ -25,78 +25,77 @@ def create_battlefield(map_size):
 
 
 def display_battlefield(board):
-    """ 
+    """
     function to display current state of the map 
     """
     for row in board:
         print(" ".join(row))
 
 
-def player_ship_coordinate(playerBoard):
+def player_ship_coordinate(player_board):
     """
     function for player placement ship
     """
-    for B in range(5):
+    while True:
         try:
             row = int(input("Enter the row for Battleship: "))
             col = int(input("Enter the column for Battleship: "))         
             if 0 <= row < 10 and 0 <= col < 10:
-                playerBoard[row][col] = "B"
+                player_board[row][col] = "B"
+                break
             else:
                 print("Invalid coordinates. Please enter correct value.")
-                B -= 1  
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
-    for C in range(3):
+    while True:
         try:
             row = int(input("Enter the row for Cruiser: "))
             col = int(input("Enter the column for Cruiser: "))
             
             if 0 <= row < 10 and 0 <= col < 10:
-                playerBoard[row][col] = "C"
+                player_board[row][col] = "C"
+                break
             else:
                 print("Invalid coordinates. Please enter correct values.")
-                C -= 1  
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
     
-    for F in range(4):
+    while True:
         try:
             row = int(input("Enter the row for Frigate: "))
             col = int(input("Enter the column for Frigate: "))
-            
-            if 0 <= row < 10 and 0 <= col < 10 and playerBoard[row][col] == "_":
-                playerBoard[row][col] = "F"
+            if 0 <= row < 10 and 0 <= col < 10:
+                player_board[row][col] = "F"
+                break
             else:
                 print("Invalid coordinates. Please enter correct values")
-                F -= 1  
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
-    for A in range(6):
+    while True:
         try:
             row = int(input("Enter the row for Aircraft Carrier: "))
             col = int(input("Enter the column for Aircraft Carrier: "))
             
-            if 0 <= row < 10 and 0 <= col < 10 and playerBoard[row][col] == "_":
-                playerBoard[row][col] = "A"
+            if 0 <= row < 10 and 0 <= col < 10:
+                player_board[row][col] = "A"
+                break
             else:
                 print("Invalid coordinates. Please enter correct values")
-                A -= 1  
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
-    for S in range(2):
+    while True:
         try:
             row = int(input("Enter the row for Submarine: "))
             col = int(input("Enter the column for Submarine: "))
             
-            if 0 <= row < 10 and 0 <= col < 10 and playerBoard[row][col] == "_":
-                playerBoard[row][col] = "S"
+            if 0 <= row < 10 and 0 <= col < 10:
+                player_board[row][col] = "S"
+                break
             else:
                 print("Invalid coordinates. Please enter correct values")
-                S -= 1  
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
@@ -134,10 +133,11 @@ def comp_ship_coordinate(compBoard):
 
     return compBoard
 
+
 def check_player_hit(compBoard, playerHit):
-"""
-function for player hit or missed on enemy ship
-"""
+    """
+    function for player hit or missed on enemy ship
+    """
     row = int(input("Enter your row: "))
     col = int(input("Enter your col:"))
 
