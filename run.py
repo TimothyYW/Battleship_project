@@ -10,7 +10,7 @@ def get_username_name():
     function getting username for welcome message
     """
     user_name = input("Enter your name:")
-    print(f"Welcome to the battleship game {user_name}!")
+    print(f"Welcome to the battleship game {user_nme}!")
     return user_name
 
 
@@ -39,7 +39,7 @@ def player_ship_coordinate(player_board):
     while True:
         try:
             row = int(input("Enter the row for Battleship: "))
-            col = int(input("Enter the column for Battleship: "))         
+            col = int(input("Enter the column for Battleship: "))      
             if 0 <= row < 10 and 0 <= col < 10:
                 player_board[row][col] = "B"
                 break
@@ -76,7 +76,7 @@ def player_ship_coordinate(player_board):
         try:
             row = int(input("Enter the row for Aircraft Carrier: "))
             col = int(input("Enter the column for Aircraft Carrier: "))
-          
+
             if 0 <= row < 10 and 0 <= col < 10:
                 player_board[row][col] = "A"
                 break
@@ -89,7 +89,7 @@ def player_ship_coordinate(player_board):
         try:
             row = int(input("Enter the row for Submarine: "))
             col = int(input("Enter the column for Submarine: "))
-            
+
             if 0 <= row < 10 and 0 <= col < 10:
                 player_board[row][col] = "S"
                 break
@@ -116,34 +116,29 @@ def comp_ship_coordinate(comp_board):
     return comp_board
 
 
-def check_player_hit(compBoard, playerHit):
+def check_player_hit(comp_board, player_hit):
     """
     function for player hit or missed on enemy ship
     """
     row = int(input("Enter your row: "))
     col = int(input("Enter your col:"))
 
-    if compBoard[row][col] == "B"
+    if compBoard[row][col] == "B":
         playerHit[row][col] == "B"
         print("Computer: Battleship been hit!")
-    elif: 
-        compBoard[row][col] == "C"
+    elif compBoard[row][col] == "C":
         playerHit[row][col] == "C"
         print("Computer: Cruiser been hit!")
-    elif:
-        compBoard[row][col] == "F"
+    elif compBoard[row][col] == "F":
         playerHit[row][col] == "F"
         print("Computer: Frigate been hit!")
-    elif:
-        compBoard[row][col] == "A"
+    elif compBoard[row][col] == "A":
         playerHit[row][col] == "A"
         print("Computer: Aircraft Carrier been hit")
-    elif:
-        compBoard[row][col] == "S"
+    elif compBoard[row][col]== "S":
         playerHit[row][col] == "S"
         print("Computer: Sub been hit")
-    else:
-        playerHit[row][col] == "M"
+    else playerHit[row][col] == "M":
         print("Missed me!")
 
     return playerHit
