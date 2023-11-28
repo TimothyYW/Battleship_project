@@ -123,25 +123,25 @@ def check_player_hit(comp_board, player_hit):
     row = int(input("Enter your row: "))
     col = int(input("Enter your col:"))
 
-    if compBoard[row][col] == "B":
-        playerHit[row][col] == "B"
+    if comp_board[row][col] == "B":
+        player_hit[row][col] == "B"
         print("Computer: Battleship been hit!")
-    elif compBoard[row][col] == "C":
-        playerHit[row][col] == "C"
+    elif comp_board[row][col] == "C":
+        player_hit[row][col] == "C"
         print("Computer: Cruiser been hit!")
-    elif compBoard[row][col] == "F":
-        playerHit[row][col] == "F"
+    elif comp_board[row][col] == "F":
+        player_hit[row][col] == "F"
         print("Computer: Frigate been hit!")
-    elif compBoard[row][col] == "A":
-        playerHit[row][col] == "A"
+    elif comp_board[row][col] == "A":
+        player_hit[row][col] == "A"
         print("Computer: Aircraft Carrier been hit")
-    elif compBoard[row][col]== "S":
-        playerHit[row][col] == "S"
+    elif comp_board[row][col]== "S":
+        player_hit[row][col] == "S"
         print("Computer: Sub been hit")
-    else playerHit[row][col] == "M":
+    else player_hit[row][col] == "M":
         print("Missed me!")
 
-    return playerHit
+    return player_hit
 
 if __name__ == "__main__":
     playerboard = create_battlefield(map_size)
