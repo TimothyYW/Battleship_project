@@ -1,8 +1,8 @@
 from random import randrange
 
 
-shipIntial = ["B", "C", "F", "A", "S"]
-shipNames = ["Battleship", "Cruiser", "Frigate", "Aircraft Carrier", "Sub"]
+ship_intial = ["B", "C", "F", "A", "S"]
+ship_names = ["Battleship", "Cruiser", "Frigate", "Aircraft Carrier", "Sub"]
 
 
 def get_username_name():
@@ -26,7 +26,7 @@ def create_battlefield(map_size):
 
 def display_battlefield(board):
     """
-    function to display current state of the map 
+    function to display current state of the map.
     """
     for row in board:
         print(" ".join(row))
@@ -52,7 +52,6 @@ def player_ship_coordinate(player_board):
         try:
             row = int(input("Enter the row for Cruiser: "))
             col = int(input("Enter the column for Cruiser: "))
-            
             if 0 <= row < 10 and 0 <= col < 10:
                 player_board[row][col] = "C"
                 break
@@ -60,7 +59,7 @@ def player_ship_coordinate(player_board):
                 print("Invalid coordinates. Please enter correct values.")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
-    
+  
     while True:
         try:
             row = int(input("Enter the row for Frigate: "))
@@ -77,7 +76,7 @@ def player_ship_coordinate(player_board):
         try:
             row = int(input("Enter the row for Aircraft Carrier: "))
             col = int(input("Enter the column for Aircraft Carrier: "))
-            
+          
             if 0 <= row < 10 and 0 <= col < 10:
                 player_board[row][col] = "A"
                 break
@@ -99,39 +98,22 @@ def player_ship_coordinate(player_board):
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
-    return playerBoard
+    return player_board
 
 
-def comp_ship_coordinate(compBoard):
+def comp_ship_coordinate(comp_board):
     """
-    function for computer opponent
+    function for computer opponent.
     """
-    for _ in range(5):
-        row = randrange(0, 10)
-        col = randrange(0, 10)
-        compBoard[row][col] = "B"
-    
-    for _ in range(3):
-        row = randrange(0, 10)
-        col = randrange(0, 10)
-        compBoard[row][col] = "C"
+    for ship in ship_intial:
+        while True:
+            row = andrange(0, 10)
+            col = randrange(0, 10)
+            if comp_board[row][col] == "_":
+                comp_board[row][col] = ship
+                break
 
-    for _ in range(4):
-        row = randrange(0, 10)
-        col = randrange(0, 10)
-        compBoard[row][col] = "F"
-
-    for _ in range(6):
-        row = randrange(0, 10)
-        col = randrange(0, 10)
-        compBoard[row][col] = "A"
-
-    for _ in range(2):
-        row = randrange(0, 10)
-        col = randrange(0, 10)
-        compBoard[row][col] = "S"
-
-    return compBoard
+    return comp_board
 
 
 def check_player_hit(compBoard, playerHit):
@@ -165,7 +147,7 @@ def check_player_hit(compBoard, playerHit):
         print("Missed me!")
 
     return playerHit
-    
+
 if __name__ == "__main__":
     playerboard = create_battlefield(map_size)
     compboard = create_battlefield(map_size)
