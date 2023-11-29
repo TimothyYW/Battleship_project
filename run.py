@@ -1,16 +1,16 @@
 from random import randrange
 
 
-ship_intial = ["B", "C", "F", "A", "S"]
+ship_initial = ["B", "C", "F", "A", "S"]
 ship_names = ["Battleship", "Cruiser", "Frigate", "Aircraft Carrier", "Sub"]
 
 
-def get_username_name():
+def get_username():
     """
     function getting username for welcome message
     """
     user_name = input("Enter your name:")
-    print(f"Welcome to the battleship game {user_nme}!")
+    print(f"Welcome to the battleship game {user_name}!")
     return user_name
 
 
@@ -39,7 +39,7 @@ def player_ship_coordinate(player_board):
     while True:
         try:
             row = int(input("Enter the row for Battleship: "))
-            col = int(input("Enter the column for Battleship: "))      
+            col = int(input("Enter the column for Battleship: "))
             if 0 <= row < 10 and 0 <= col < 10:
                 player_board[row][col] = "B"
                 break
@@ -59,7 +59,7 @@ def player_ship_coordinate(player_board):
                 print("Invalid coordinates. Please enter correct values.")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
-  
+
     while True:
         try:
             row = int(input("Enter the row for Frigate: "))
@@ -105,9 +105,9 @@ def comp_ship_coordinate(comp_board):
     """
     function for computer opponent.
     """
-    for ship in ship_intial:
+    for ship in ship_initial:
         while True:
-            row = andrange(0, 10)
+            row = randrange(0, 10)
             col = randrange(0, 10)
             if comp_board[row][col] == "_":
                 comp_board[row][col] = ship
@@ -121,7 +121,7 @@ def check_player_hit(comp_board, player_hit):
     function for player hit or missed on enemy ship
     """
     row = int(input("Enter your row: "))
-    col = int(input("Enter your col: "))
+    col = int(input("Enter your col:"))
 
     if comp_board[row][col] == "B":
         player_hit[row][col] == "B"
@@ -162,7 +162,7 @@ def check_comp_hit(player_board, comp_hit):
         print("Player: Frigate been hit!")
     elif player_board[row][col] == "A":
         comp_hit[row][col] == "A"
-        print("Player: Aircraft carrier been hit!"):
+        print("Player: Aircraft carrier been hit!")
     elif player_board[row][col] == "S":
         comp_hit[row][col] == "S"
         print("Player: Sub been hit!")
@@ -171,13 +171,16 @@ def check_comp_hit(player_board, comp_hit):
         print("Missed me!")
 
     return comp_hit
-     
-    if __name__ == "__main__":
+
+if __name__ == "__main__":
+
+        get_username()
+
         player_board = create_battlefield(map_size)
         comp_board = create_battlefield(map_size)
 
         print("Player's turn:")
-        player_ship_coordinate(player_oard)
+        player_ship_coordinate(player_board)
         display_battlefield(player_board)
 
         print("\nComputer opponent's turn:")
