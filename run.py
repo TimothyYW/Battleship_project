@@ -121,7 +121,7 @@ def check_player_hit(comp_board, player_hit):
     function for player hit or missed on enemy ship
     """
     row = int(input("Enter your row: "))
-    col = int(input("Enter your col:"))
+    col = int(input("Enter your col: "))
 
     if comp_board[row][col] == "B":
         player_hit[row][col] == "B"
@@ -135,22 +135,33 @@ def check_player_hit(comp_board, player_hit):
     elif comp_board[row][col] == "A":
         player_hit[row][col] == "A"
         print("Computer: Aircraft Carrier been hit")
-    elif comp_board[row][col]== "S":
+    elif comp_board[row][col] == "S":
         player_hit[row][col] == "S"
         print("Computer: Sub been hit")
-    else player_hit[row][col] == "M":
+    else: 
+        player_hit[row][col] == "M"
         print("Missed me!")
 
     return player_hit
 
-if __name__ == "__main__":
-    playerboard = create_battlefield(map_size)
-    compboard = create_battlefield(map_size)
+def check_comp_hit(player_board, comp_hit):
+    """
+    function for comp hit or missed on the player ship
+    """
+    row = (int(input("Enter your coordinate: ")))
+    col = (int(input("Enter your coordinate: ")))
 
-    print("Player's turn:")
-    player_ship_coordinate(playerboard)
-    display_battlefield(playerboard)
+    if player_board[row][col] == "B"
+        comp_hit[row][col] == "B"
+        elif player_board[row][col] == ""
+    if __name__ == "__main__":
+        playerboard = create_battlefield(map_size)
+        compboard = create_battlefield(map_size)
 
-    print("\nComputer opponent's turn:")
-    comp_ship_coordinate(compboard)
-    display_battlefield(compboard)
+        print("Player's turn:")
+        player_ship_coordinate(playerboard)
+        display_battlefield(playerboard)
+
+        print("\nComputer opponent's turn:")
+        comp_ship_coordinate(compboard)
+        display_battlefield(compboard)
