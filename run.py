@@ -32,7 +32,7 @@ def display_battlefield(board):
         print(" ".join(row))
 
 
-def player_ship_coordinate(player_board):
+def player_ship_coordinate(player_board, occupied):
     """
     function for player placement ship
     """
@@ -40,8 +40,9 @@ def player_ship_coordinate(player_board):
         try:
             row = int(input("Enter the row for Battleship: "))
             col = int(input("Enter the column for Battleship: "))
-            if 0 <= row < 10 and 0 <= col < 10:
+            if 0 <= row < 10 and 0 <= col < 10 and (row, col) not in occupied:
                 player_board[row][col] = "B"
+                occupied.add((row, col))
                 break
             else:
                 print("Invalid coordinates. Please enter correct value.")
@@ -52,8 +53,9 @@ def player_ship_coordinate(player_board):
         try:
             row = int(input("Enter the row for Cruiser: "))
             col = int(input("Enter the column for Cruiser: "))
-            if 0 <= row < 10 and 0 <= col < 10:
+            if 0 <= row < 10 and 0 <= col < 10 and (row, col) not in occupied:
                 player_board[row][col] = "C"
+                occupied.add((row, col))
                 break
             else:
                 print("Invalid coordinates. Please enter correct values.")
@@ -64,8 +66,9 @@ def player_ship_coordinate(player_board):
         try:
             row = int(input("Enter the row for Frigate: "))
             col = int(input("Enter the column for Frigate: "))
-            if 0 <= row < 10 and 0 <= col < 10:
+            if 0 <= row < 10 and 0 <= col < 10 and (row, col) not in occupied:
                 player_board[row][col] = "F"
+                occupied.add((row, col))
                 break
             else:
                 print("Invalid coordinates. Please enter correct values")
@@ -77,8 +80,9 @@ def player_ship_coordinate(player_board):
             row = int(input("Enter the row for Aircraft Carrier: "))
             col = int(input("Enter the column for Aircraft Carrier: "))
 
-            if 0 <= row < 10 and 0 <= col < 10:
+            if 0 <= row < 10 and 0 <= col < 10 and (row, col) not in occupied:
                 player_board[row][col] = "A"
+                occupied.add((row, col))
                 break
             else:
                 print("Invalid coordinates. Please enter correct values")
@@ -90,15 +94,16 @@ def player_ship_coordinate(player_board):
             row = int(input("Enter the row for Submarine: "))
             col = int(input("Enter the column for Submarine: "))
 
-            if 0 <= row < 10 and 0 <= col < 10:
+            if 0 <= row < 10 and 0 <= col < 10 and (row, col) not in occupied:
                 player_board[row][col] = "S"
+                occupied.add((row, col))
                 break
             else:
                 print("Invalid coordinates. Please enter correct values")
         except ValueError:
             print("Invalid input. Please enter a valid integer.")
 
-    return player_board
+    return player_board, occupied
 
 
 def comp_ship_coordinate(comp_board):
@@ -138,11 +143,12 @@ def check_player_hit(comp_board, player_hit):
     elif comp_board[row][col] == "S":
         player_hit[row][col] == "S"
         print("Computer: Sub been hit")
-    else: 
+    else:
         player_hit[row][col] == "M"
         print("Missed me!")
 
     return player_hit
+
 
 def check_comp_hit(player_board, comp_hit):
     """
@@ -172,6 +178,7 @@ def check_comp_hit(player_board, comp_hit):
 
     return comp_hit
 
+
 if __name__ == "__main__":
 
         get_username()
@@ -179,8 +186,10 @@ if __name__ == "__main__":
         player_board = create_battlefield(map_size)
         comp_board = create_battlefield(map_size)
 
+        occupied = set()
+
         print("Player's turn:")
-        player_ship_coordinate(player_board)
+        player_ship_coordinate(player_board, occupied)
         display_battlefield(player_board)
 
         print("\nComputer opponent's turn:")
