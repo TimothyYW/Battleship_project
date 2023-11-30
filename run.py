@@ -125,34 +125,36 @@ def comp_ship_coordinate(comp_board):
     return comp_board
 
 
-def check_player_hit(comp_board, player_hit):
+def check_player_hit(comp_board, user):
     """
     function for player hit or missed on enemy ship
     """
+    print(user)
     row = int(input("Enter your row: "))
     col = int(input("Enter your col:"))
+    hit = 1
 
     if comp_board[row][col] == "B":
-        player_hit[row][col] = "B"
+        comp_board[row][col] = "b"
         print("Computer: Battleship been hit!")
     elif comp_board[row][col] == "C":
-        player_hit[row][col] = "C"
+        comp_board[row][col] = "c"
         print("Computer: Cruiser been hit!")
     elif comp_board[row][col] == "F":
-        player_hit[row][col] = "F"
+        comp_board[row][col] = "f"
         print("Computer: Frigate been hit!")
     elif comp_board[row][col] == "A":
-        player_hit[row][col] = "A"
+        comp_board[row][col] = "a"
         print("Computer: Aircraft Carrier been hit")
     elif comp_board[row][col] == "S":
-        player_hit[row][col] = "S"
+        comp_board[row][col] = "s"
         print("Computer: Sub been hit")
     else:
-        player_hit[row][col] = "M"
+        comp_board[row][col] = "m"
+        hit = 0
         print("Missed me!")
 
-    return player_hit
-
+    return hit
 
 def check_comp_hit(player_board, comp_hit):
     """
