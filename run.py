@@ -168,27 +168,31 @@ def check_comp_hit(player_board):
         col = randrange(0, 10)
         if player_board[row][col] != "*" and player_board[row][col] != "a" and player_board[row][col] != "b" and comp_board[row][col] != "c" and comp_board[row][col] != "f" and comp_board[row][col] != "s":
             break
-        
+
+        print("Computer has selected coordinates", row, col)
+
     if player_board[row][col] == "B":
-        comp_hit[row][col] = "B"
+        player_board[row][col] = "b"
         print("Player: Battleship been hit!")
     elif player_board[row][col] == "C":
-        comp_hit[row][col] = "C"
+        player_board[row][col] = "c"
         print("Player: Cruiser been hit!")
     elif player_board[row][col] == "F":
-        comp_hit[row][col] = "F"
+        player_board[row][col] = "f"
         print("Player: Frigate been hit!")
+        hit = 1
     elif player_board[row][col] == "A":
-        comp_hit[row][col] = "A"
+        player_board[row][col] = "a"
         print("Player: Aircraft carrier been hit!")
     elif player_board[row][col] == "S":
-        comp_hit[row][col] = "S"
+        player_board[row][col] = "s"
         print("Player: Sub been hit!")
     else:
-        comp_hit[row][col] = "M"
+        hit = 0
         print("Missed me!")
+        player_board[row][col] = "*"
 
-    return comp_hit
+    return hit
 
 
 if __name__ == "__main__":
