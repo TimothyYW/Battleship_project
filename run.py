@@ -129,22 +129,22 @@ def check_player_hit(comp_board, player_hit):
     col = int(input("Enter your col:"))
 
     if comp_board[row][col] == "B":
-        player_hit[row][col] == "B"
+        player_hit[row][col] = "B"
         print("Computer: Battleship been hit!")
     elif comp_board[row][col] == "C":
-        player_hit[row][col] == "C"
+        player_hit[row][col] = "C"
         print("Computer: Cruiser been hit!")
     elif comp_board[row][col] == "F":
-        player_hit[row][col] == "F"
+        player_hit[row][col] = "F"
         print("Computer: Frigate been hit!")
     elif comp_board[row][col] == "A":
-        player_hit[row][col] == "A"
+        player_hit[row][col] = "A"
         print("Computer: Aircraft Carrier been hit")
     elif comp_board[row][col] == "S":
-        player_hit[row][col] == "S"
+        player_hit[row][col] = "S"
         print("Computer: Sub been hit")
     else:
-        player_hit[row][col] == "M"
+        player_hit[row][col] = "M"
         print("Missed me!")
 
     return player_hit
@@ -158,22 +158,22 @@ def check_comp_hit(player_board, comp_hit):
     col = (int(input("Enter your coordinate: ")))
 
     if player_board[row][col] == "B":
-        comp_hit[row][col] == "B"
+        comp_hit[row][col] = "B"
         print("Player: Battleship been hit!")
     elif player_board[row][col] == "C":
-        comp_hit[row][col] == "C"
+        comp_hit[row][col] = "C"
         print("Player: Cruiser been hit!")
     elif player_board[row][col] == "F":
-        comp_hit[row][col] == "F"
+        comp_hit[row][col] = "F"
         print("Player: Frigate been hit!")
     elif player_board[row][col] == "A":
-        comp_hit[row][col] == "A"
+        comp_hit[row][col] = "A"
         print("Player: Aircraft carrier been hit!")
     elif player_board[row][col] == "S":
-        comp_hit[row][col] == "S"
+        comp_hit[row][col] = "S"
         print("Player: Sub been hit!")
     else:
-        comp_hit[row][col] == "M"
+        comp_hit[row][col] = "M"
         print("Missed me!")
 
     return comp_hit
