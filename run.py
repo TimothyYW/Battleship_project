@@ -9,9 +9,13 @@ def get_username():
     """
     function getting username for welcome message
     """
-    user_name = input("Enter your name:")
-    print(f"Welcome to the battleship game {user_name}!")
-    return user_name
+    while True:
+        user_name = input("Enter your name:")
+        if user_name:
+            print(f"Welcome to the battleship game {user_name}!")
+            return user_name
+        else:
+            print("Please enter your name.")
 
 
 map_size = 10
