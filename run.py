@@ -156,13 +156,19 @@ def check_player_hit(comp_board, user):
 
     return hit
 
-def check_comp_hit(player_board, comp_hit):
+def check_comp_hit(player_board):
     """
     function for comp hit or missed on the player ship
     """
-    row = (int(input("Enter your coordinate: ")))
-    col = (int(input("Enter your coordinate: ")))
 
+    hit = 1
+    
+    while True:
+        row = randrange(0, 10)
+        col = randrange(0, 10)
+        if player_board[row][col] != "*" and player_board[row][col] != "a" and player_board[row][col] != "b" and comp_board[row][col] != "c" and comp_board[row][col] != "f" and comp_board[row][col] != "s":
+            break
+        
     if player_board[row][col] == "B":
         comp_hit[row][col] = "B"
         print("Player: Battleship been hit!")
