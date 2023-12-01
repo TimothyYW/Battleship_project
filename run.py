@@ -196,7 +196,9 @@ def check_comp_hit(player_board):
 
 
 if __name__ == "__main__":
-
+"""
+function for game loop
+"""
         get_username()
 
         player_board = create_battlefield(map_size)
@@ -211,3 +213,25 @@ if __name__ == "__main__":
         print("\nComputer opponent's turn:")
         comp_ship_coordinate(comp_board)
         display_battlefield(comp_board)
+
+        player_hits = 0
+        comp_hits = 0
+
+        while True:
+            player_hits += check_player_hit(comp_board, user)
+            if player_hits == 5:
+                print("Player has won - game over")
+                break
+
+            comp_hits += check_comp_hit(player_board)
+            if comp_hits == 5:
+                print("Computer has won - game over")
+                break
+
+            print(f"Player {user} board")
+            display_battlefield(player_board)
+            
+            print(" ")
+
+            print("Computer board")
+            display_battlefield(comp_board)
