@@ -136,36 +136,40 @@ def check_player_hit(comp_board, fake_board, user):
     """
     function for player hit or missed on enemy ship
     """
-    print(user)
-    row = int(input("Enter your row: "))
-    col = int(input("Enter your col:"))
-    hit = 1
+    while True:
+        try:
+            print(user)
+            row = int(input("Enter your row: "))
+            col = int(input("Enter your col:"))
+            hit = 1
 
-    if comp_board[row][col] == "B":
-        comp_board[row][col] = "b"
-        fake_board[row][col] = "b" 
-        print("Computer: Battleship been hit!")
-    elif comp_board[row][col] == "C":
-        comp_board[row][col] = "c"
-        fake_board[row][col] = "c" 
-        print("Computer: Cruiser been hit!")
-    elif comp_board[row][col] == "F":
-        comp_board[row][col] = "f"
-        fake_board[row][col] = "f" 
-        print("Computer: Frigate been hit!")
-    elif comp_board[row][col] == "A":
-        comp_board[row][col] = "a"
-        fake_board[row][col] = "a" 
-        print("Computer: Aircraft Carrier been hit")
-    elif comp_board[row][col] == "S":
-        comp_board[row][col] = "s"
-        fake_board[row][col] = "s" 
-        print("Computer: Sub been hit")
-    else:
-        comp_board[row][col] = "*"
-        fake_board[row][col] = "*" 
-        hit = 0
-        print("Missed me!")
+            if comp_board[row][col] == "B":
+                comp_board[row][col] = "b"
+                fake_board[row][col] = "b" 
+                print("Computer: Battleship been hit!")
+            elif comp_board[row][col] == "C":
+                comp_board[row][col] = "c"
+                fake_board[row][col] = "c" 
+                print("Computer: Cruiser been hit!")
+            elif comp_board[row][col] == "F":
+                comp_board[row][col] = "f"
+                fake_board[row][col] = "f" 
+                print("Computer: Frigate been hit!")
+            elif comp_board[row][col] == "A":
+                comp_board[row][col] = "a"
+                fake_board[row][col] = "a" 
+                print("Computer: Aircraft Carrier been hit")
+            elif comp_board[row][col] == "S":
+                comp_board[row][col] = "s"
+                fake_board[row][col] = "s" 
+                print("Computer: Sub been hit")
+            else:
+                comp_board[row][col] = "*"
+                fake_board[row][col] = "*" 
+                hit = 0
+                print("Missed me!")
+        except ValueError:
+            print("Invalid number. Please enter valid number")
 
     return hit
 
