@@ -34,6 +34,16 @@ They will be market with their initial:
 
 After input the coordinate for each ships, player will be able to input coordinate to where they would like to fire a shot.
 
+If player missed it will display " * ", while if it was a hit it will be shown by X.
+
+While the computer coordinates will be randomize and the player must guess where the ships are.
+
+Player and computer will be take turn to discover the ship location.
+
+In order to win the game either player or computer must sunk all 5 ships.
+
+
+
 This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
 
 ## Reminders
