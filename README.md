@@ -1,6 +1,38 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Battleship game
 
-Welcome,
+Welcome to the battleship game, a game runs on the Python terminal.
+
+user will be up against enemy AI, both player and computer will have 5 ships with their own initial and user must destroy all of opponent ships before all of their own ships sunk.
+
+Here is my active project
+
+![Battleship game]
+
+## How to play
+
+Battleship game based on the project suggestion by code institute.
+
+In this version, user need to input their username first.
+
+Afterward, player should input their ships coordinate, those are:
+
+Battleship, Frigate, Cruiser, Aircraft carrier, and (Sub)marine.
+
+The player will be able to see their ships placement after input valid coodinates.
+
+They will be market with their initial:
+
+- Battleship = B
+
+- Frigate = F
+
+- Cruiser = C
+
+- Aircraft carrier = A
+
+- Submarine = S
+
+After input the coordinate for each ships, player will be able to input coordinate to where they would like to fire a shot.
 
 This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
 

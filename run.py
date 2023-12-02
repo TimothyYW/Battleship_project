@@ -3,7 +3,7 @@ from random import randrange
 
 ship_initial = ["B", "C", "F", "A", "S"]
 ship_names = ["Battleship", "Cruiser", "Frigate", "Aircraft Carrier", "Sub"]
-
+map_size = 10
 
 def get_username():
     """
@@ -18,7 +18,14 @@ def get_username():
             print("Please enter your name.")
 
 
-map_size = 10
+def guide_rule():
+    """
+    function to display rule for the game
+    """
+    print("rule of game: ")
+    print("there are 5 ships for player and computer")
+    print("give them coordinate for row and column from 0 to 10")
+    print("once 5 ships from enemy or the player has been sunk, the game will be over")
 
 
 def create_battlefield(map_size):
@@ -150,7 +157,7 @@ def check_player_hit(comp_board, user):
         comp_board[row][col] = "s"
         print("Computer: Sub been hit")
     else:
-        comp_board[row][col] = "m"
+        comp_board[row][col] = "*"
         hit = 0
         print("Missed me!")
 
@@ -196,10 +203,8 @@ def check_comp_hit(player_board):
 
 
 if __name__ == "__main__":
-"""
-function for game loop
-"""
-        get_username()
+
+        user = get_username()
 
         player_board = create_battlefield(map_size)
         comp_board = create_battlefield(map_size)
