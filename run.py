@@ -170,6 +170,8 @@ def check_player_hit(comp_board, fake_board, user):
                 print("Missed me!")
         except ValueError:
             print("Invalid number. Please enter valid number")
+        except IndexError:
+            print("Please select between 0 to 9")
 
     return hit
 
@@ -230,8 +232,8 @@ if __name__ == "__main__":
 
         print("\nComputer opponent's turn:")
         comp_ship_coordinate(comp_board)
-        # display_battlefield(comp_board)
-        display_battlefield(fake_board)
+        display_battlefield(comp_board)
+        # display_battlefield(fake_board)
 
         player_hits = 0
         comp_hits = 0
@@ -247,11 +249,10 @@ if __name__ == "__main__":
                 print("Computer has won - game over")
                 break
 
-            print(f"Player {user} board")
-            display_battlefield(player_board)
+        print(f"Player {user} board")
+        display_battlefield(player_board)
             
-            print(" ")
+        print(" ")
 
-            print("Computer board")
-            display_battlefield(comp_board)
-            display_battlefield(fake_board)
+        print("Computer board")
+        display_battlefield(fake_board)

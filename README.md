@@ -42,7 +42,31 @@ Player and computer will be take turn to discover the ship location.
 
 In order to win the game either player or computer must sunk all 5 ships.
 
+## Future feature
 
+- Adding different sizes for the ship.
+
+- Allowing player choose to put ships horizontal or vertical.
+
+## Data Model
+
+## Testing
+
+## 
+
+## Credit
+
+Code institute suggestion
+
+https://stackoverflow.com/questions/28866424/making-simple-game-of-battleship
+
+https://stackoverflow.com/questions/14181146/codeacademy-battleship-project-syntax-error
+
+https://www.youtube.com/watch?v=MgJBgnsDcF0
+
+https://copyassignment.com/battleship-game-code-in-python/#google_vignette
+
+https://stackoverflow.com/questions/55759918/battleship-game-in-python-for-a-project-in-school
 
 This is the Code Institute student template for deploying your third portfolio project, the Python command-line project. The last update to this file was: **March 14, 2023**
 
