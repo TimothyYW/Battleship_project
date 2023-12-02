@@ -136,37 +136,37 @@ def check_player_hit(comp_board, fake_board, user):
     """
     function for player hit or missed on enemy ship
     """
+    user_name = user
     while True:
         try:
-            print(user)
-            row = int(input("Enter your row: "))
-            col = int(input("Enter your col:"))
+            print(f"{user} coordinates")
+            row = int(input("Enter your target row: "))
+            col = int(input("Enter your target col: "))
             hit = 1
 
             if comp_board[row][col] == "B":
-                comp_board[row][col] = "b"
-                fake_board[row][col] = "b" 
+                comp_board[row][col] = "B"
+                fake_board[row][col] = "X" 
                 print("Computer: Battleship been hit!")
             elif comp_board[row][col] == "C":
-                comp_board[row][col] = "c"
-                fake_board[row][col] = "c" 
+                comp_board[row][col] = "C"
+                fake_board[row][col] = "X"
                 print("Computer: Cruiser been hit!")
             elif comp_board[row][col] == "F":
-                comp_board[row][col] = "f"
-                fake_board[row][col] = "f" 
+                comp_board[row][col] = "F"
+                fake_board[row][col] = "X"
                 print("Computer: Frigate been hit!")
             elif comp_board[row][col] == "A":
-                comp_board[row][col] = "a"
-                fake_board[row][col] = "a" 
+                comp_board[row][col] = "A"
+                fake_board[row][col] = "X"
                 print("Computer: Aircraft Carrier been hit")
             elif comp_board[row][col] == "S":
-                comp_board[row][col] = "s"
-                fake_board[row][col] = "s" 
+                comp_board[row][col] = "S"
+                fake_board[row][col] = "X"
                 print("Computer: Sub been hit")
             else:
-                comp_board[row][col] = "*"
-                fake_board[row][col] = "*" 
-                hit = 0
+                fake_board[row][col] = "*"
+                hit = 0  
                 print("Missed me!")
         except ValueError:
             print("Invalid number. Please enter valid number")
@@ -185,26 +185,25 @@ def check_comp_hit(player_board):
     while True:
         row = randrange(0, 10)
         col = randrange(0, 10)
-        if player_board[row][col] != "*" and player_board[row][col] != "a" and player_board[row][col] != "b" and comp_board[row][col] != "c" and comp_board[row][col] != "f" and comp_board[row][col] != "s":
+        if player_board[row][col] != "*" and player_board[row][col] != "A" and player_board[row][col] != "B" and comp_board[row][col] != "C" and comp_board[row][col] != "F" and comp_board[row][col] != "S":
             break
 
-        print("Computer has selected coordinates", row, col)
+    print("Computer has selected coordinates", row, col)
 
     if player_board[row][col] == "B":
-        player_board[row][col] = "b"
+        player_board[row][col] = "B"
         print("Player: Battleship been hit!")
     elif player_board[row][col] == "C":
-        player_board[row][col] = "c"
+        player_board[row][col] = "C"
         print("Player: Cruiser been hit!")
     elif player_board[row][col] == "F":
-        player_board[row][col] = "f"
+        player_board[row][col] = "F"
         print("Player: Frigate been hit!")
-        hit = 1
     elif player_board[row][col] == "A":
-        player_board[row][col] = "a"
+        player_board[row][col] = "A"
         print("Player: Aircraft carrier been hit!")
     elif player_board[row][col] == "S":
-        player_board[row][col] = "s"
+        player_board[row][col] = "S"
         print("Player: Sub been hit!")
     else:
         hit = 0
@@ -232,8 +231,8 @@ if __name__ == "__main__":
 
         print("\nComputer opponent's turn:")
         comp_ship_coordinate(comp_board)
-        display_battlefield(comp_board)
-        # display_battlefield(fake_board)
+        # display_battlefield(comp_board)
+        display_battlefield(fake_board)
 
         player_hits = 0
         comp_hits = 0
@@ -249,10 +248,10 @@ if __name__ == "__main__":
                 print("Computer has won - game over")
                 break
 
-        print(f"Player {user} board")
-        display_battlefield(player_board)
-            
-        print(" ")
+            print(f"Player {user} board")
+            display_battlefield(player_board)
+                    
+            print(" ")
 
-        print("Computer board")
-        display_battlefield(fake_board)
+            print("Computer board")
+            display_battlefield(fake_board)
