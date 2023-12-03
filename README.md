@@ -42,6 +42,18 @@ Player and computer will be take turn to discover the ship location.
 
 In order to win the game either player or computer must sunk all 5 ships.
 
+## Features
+
+# Existing feature
+
+- Customize board
+
+    - Player allowed to choose where do they want to put their board.
+
+    - Different initial for different ships.
+
+
+
 ## Future feature
 
 - Adding different sizes for the ship.
@@ -52,7 +64,19 @@ In order to win the game either player or computer must sunk all 5 ships.
 
 ## Testing
 
-## 
+## Bugs
+
+# Solved bug
+
+- When I input an alphabet instead of number, it will crash the game. I resolve this by creating message for ValueError and IndexError
+
+# Remaining bug
+
+- When input coordinate to attack, it will just only said player missed or hit without update the map display.
+
+- Enemy opponent did not choose coordinate nor try to attack player.
+
+# Validator test
 
 ## Credit
 
