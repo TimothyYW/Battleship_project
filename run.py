@@ -168,6 +168,9 @@ def check_player_hit(comp_board, fake_board, user):
                 fake_board[row][col] = "*"
                 hit = 0  
                 print("Missed me!")
+
+            break
+        
         except ValueError:
             print("Invalid number. Please enter valid number")
         except IndexError:
