@@ -170,7 +170,7 @@ def check_player_hit(comp_board, fake_board, user):
                 print("Missed me!")
 
             break
-        
+
         except ValueError:
             print("Invalid number. Please enter valid number")
         except IndexError:
@@ -188,7 +188,12 @@ def check_comp_hit(player_board):
     while True:
         row = randrange(0, 10)
         col = randrange(0, 10)
-        if player_board[row][col] != "*" and player_board[row][col] != "A" and player_board[row][col] != "B" and comp_board[row][col] != "C" and comp_board[row][col] != "F" and comp_board[row][col] != "S":
+        if (player_board[row][col] != "*",
+            player_board[row][col] != "A",
+            player_board[row][col] != "B",
+            player_board[row][col] != "C",
+            player_board[row][col] != "F",
+            player_board[row][col] != "S"):
             break
 
     print("Computer has selected coordinates", row, col)
@@ -234,8 +239,8 @@ if __name__ == "__main__":
 
         print("\nComputer opponent's turn:")
         comp_ship_coordinate(comp_board)
-        # display_battlefield(comp_board)
-        display_battlefield(fake_board)
+        display_battlefield(comp_board)
+        # display_battlefield(fake_board)
 
         player_hits = 0
         comp_hits = 0
