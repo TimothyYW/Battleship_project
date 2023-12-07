@@ -145,23 +145,18 @@ def check_player_hit(comp_board, fake_board, user):
             hit = 1
 
             if comp_board[row][col] == "B":
-                comp_board[row][col] = "B"
                 fake_board[row][col] = "X" 
                 print("Computer: Battleship been hit!")
             elif comp_board[row][col] == "C":
-                comp_board[row][col] = "C"
                 fake_board[row][col] = "X"
                 print("Computer: Cruiser been hit!")
             elif comp_board[row][col] == "F":
-                comp_board[row][col] = "F"
                 fake_board[row][col] = "X"
                 print("Computer: Frigate been hit!")
             elif comp_board[row][col] == "A":
-                comp_board[row][col] = "A"
                 fake_board[row][col] = "X"
                 print("Computer: Aircraft Carrier been hit")
             elif comp_board[row][col] == "S":
-                comp_board[row][col] = "S"
                 fake_board[row][col] = "X"
                 print("Computer: Sub been hit")
             else:
