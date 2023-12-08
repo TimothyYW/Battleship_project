@@ -238,8 +238,8 @@ if __name__ == "__main__":
 
         print("\nComputer opponent's turn:")
         comp_ship_coordinate(comp_board)
-        display_battlefield(comp_board)
-        # display_battlefield(fake_board)
+        # display_battlefield(comp_board)
+        display_battlefield(fake_board)
 
         player_hits = 0
         comp_hits = 0
