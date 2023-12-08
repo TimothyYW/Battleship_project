@@ -158,7 +158,7 @@ def check_player_hit(comp_board, fake_board, user):
                 fake_board[row][col] = "F"
                 print("Computer: Frigate been hit!")
             elif comp_board[row][col] == "A":
-                fake_board[row][col] = "X"
+                fake_board[row][col] = "A"
                 print("Computer: Aircraft Carrier been hit")
             elif comp_board[row][col] == "S":
                 fake_board[row][col] = "S"
