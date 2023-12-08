@@ -1,5 +1,5 @@
 from random import randrange
-
+from colorama import fore, back
 
 ship_initial = ["B", "C", "F", "A", "S"]
 ship_names = ["Battleship", "Cruiser", "Frigate", "Aircraft Carrier", "Sub"]
@@ -238,7 +238,6 @@ if __name__ == "__main__":
 
         print("\nComputer opponent's turn:")
         comp_ship_coordinate(comp_board)
-        # display_battlefield(comp_board)
         display_battlefield(fake_board)
 
         player_hits = 0
