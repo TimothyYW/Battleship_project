@@ -68,15 +68,19 @@ In order to win the game either player or computer must sunk all 5 ships.
 
 # Solved bug
 
-- When I input an alphabet instead of number, it will crash the game. I resolve this by creating message for ValueError and IndexError
+- When I input an alphabet instead of number, it will crash the game. I resolve this by creating message for ValueError and IndexError.
+
+- Map refuse to print out after every turn, just add break command to break the loop.
 
 # Remaining bug
 
-- When input coordinate to attack, it will just only said player missed or hit without update the map display.
-
-- Enemy opponent did not choose coordinate nor try to attack player.
+- No bugs remaining.
 
 # Validator test
+
+- PEP 8
+
+    - No error result
 
 ## Credit
 
