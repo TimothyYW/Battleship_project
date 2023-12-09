@@ -1,9 +1,12 @@
 from random import randrange
-from colorama import fore, back
+from colorama import init, Fore, Back
 
 ship_initial = ["B", "C", "F", "A", "S"]
 ship_names = ["Battleship", "Cruiser", "Frigate", "Aircraft Carrier", "Sub"]
 map_size = 10
+init(autoreset= True)
+
+
 
 def get_username():
     """
@@ -150,30 +153,30 @@ def check_player_hit(comp_board, fake_board, user):
 
             if comp_board[row][col] == "B":
                 fake_board[row][col] = "B" 
-                print("Computer: Battleship been hit!")
+                print(Fore.RED + "Computer: Battleship been hit!")
             elif comp_board[row][col] == "C":
                 fake_board[row][col] = "C"
-                print("Computer: Cruiser been hit!")
+                print(Fore.GREEN + "Computer: Cruiser been hit!")
             elif comp_board[row][col] == "F":
                 fake_board[row][col] = "F"
-                print("Computer: Frigate been hit!")
+                print(Fore.CYAN + "Computer: Frigate been hit!")
             elif comp_board[row][col] == "A":
                 fake_board[row][col] = "A"
-                print("Computer: Aircraft Carrier been hit")
+                print(Fore.BLUE + "Computer: Aircraft Carrier been hit")
             elif comp_board[row][col] == "S":
                 fake_board[row][col] = "S"
-                print("Computer: Sub been hit")
+                print(Fore.YELLOW + "Computer: Sub been hit")
             else:
                 fake_board[row][col] = "*"
                 hit = 0  
-                print("Missed me!")
+                print(Fore.MAGENTA + "Missed me!")
 
             break
 
         except ValueError:
-            print("Invalid number. Please enter valid number")
+            print(Fore.WHITE + "Invalid number. Please enter valid number")
         except IndexError:
-            print("Please select between 0 to 9")
+            print(Fore.WHITE + "Please select between 0 to 9")
 
     return hit
 
@@ -199,22 +202,22 @@ def check_comp_hit(player_board):
 
     if player_board[row][col] == "B":
         player_board[row][col] = "B"
-        print("Player: Battleship been hit!")
+        print(Fore.RED + "Player: Battleship been hit!")
     elif player_board[row][col] == "C":
         player_board[row][col] = "C"
-        print("Player: Cruiser been hit!")
+        print(Fore.GREEN + "Player: Cruiser been hit!")
     elif player_board[row][col] == "F":
         player_board[row][col] = "F"
-        print("Player: Frigate been hit!")
+        print(Fore.CYAN + "Player: Frigate been hit!")
     elif player_board[row][col] == "A":
         player_board[row][col] = "A"
-        print("Player: Aircraft carrier been hit!")
+        print(Fore.BLUE + "Player: Aircraft carrier been hit!")
     elif player_board[row][col] == "S":
         player_board[row][col] = "S"
-        print("Player: Sub been hit!")
+        print(Fore.YELLOW + "Player: Sub been hit!")
     else:
         hit = 0
-        print("Missed me!")
+        print(Fore.MAGENTA + "Missed me!")
         player_board[row][col] = "*"
 
     return hit

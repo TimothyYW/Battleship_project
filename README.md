@@ -80,7 +80,21 @@ In order to win the game either player or computer must sunk all 5 ships.
 
 ## Credit
 
-Code institute suggestion
+Code institute suggestion for Project.
+
+Colorama 
+
+https://pypi.org/project/colorama/
+
+Installation
+
+https://medium.com/@sim30217/pip-freeze-requirements-txt-993eb433ab0b#:~:text=Apr%207-,pip%20freeze%20%3E%20requirements.,along%20with%20their%20corresponding%20versions
+
+Embedded diffrent colors
+
+https://www.youtube.com/shorts/GtGPq2eXBz0
+
+Battleship design suggestion
 
 https://stackoverflow.com/questions/28866424/making-simple-game-of-battleship
 
