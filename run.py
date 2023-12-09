@@ -4,8 +4,7 @@ from colorama import init, Fore, Back
 ship_initial = ["B", "C", "F", "A", "S"]
 ship_names = ["Battleship", "Cruiser", "Frigate", "Aircraft Carrier", "Sub"]
 map_size = 10
-init(autoreset= True)
-
+init(autoreset=True)
 
 
 def get_username():
@@ -28,7 +27,7 @@ def guide_rule():
     print("rule of game: ")
     print("there are 5 ships for player and computer")
     print("give them coordinate for row and column from 0 to 10")
-    print("once 5 ships from enemy or the player has been sunk, the game will be over")
+    print("once 5 ships has been sunk,the game will be over")
 
 
 def create_battlefield(map_size):
@@ -147,12 +146,13 @@ def check_player_hit(comp_board, fake_board, user):
             col = int(input("Enter your target col: "))
             hit = 1
 
-            if fake_board[row][col] in ship_initial or fake_board[row][col] == "*":
-                print("Coordinae already picked, please choose another coordinate.")
+            if fake_board[row][col] in ship_initial or
+            fake_board[row][col] == "*":
+                print("Please choose another coordinate.")
                 continue
 
             if comp_board[row][col] == "B":
-                fake_board[row][col] = "B" 
+                fake_board[row][col] = "B"
                 print(Fore.RED + "Computer: Battleship been hit!")
             elif comp_board[row][col] == "C":
                 fake_board[row][col] = "C"
@@ -168,7 +168,7 @@ def check_player_hit(comp_board, fake_board, user):
                 print(Fore.YELLOW + "Computer: Sub been hit")
             else:
                 fake_board[row][col] = "*"
-                hit = 0  
+                hit = 0
                 print(Fore.MAGENTA + "Missed me!")
 
             break
@@ -180,22 +180,24 @@ def check_player_hit(comp_board, fake_board, user):
 
     return hit
 
+
 def check_comp_hit(player_board):
     """
     function for comp hit or missed on the player ship
     """
 
     hit = 1
-    
     while True:
         row = randrange(0, 10)
         col = randrange(0, 10)
-        if (player_board[row][col] != "*",
+        if (
+            player_board[row][col] != "*",
             player_board[row][col] != "A",
             player_board[row][col] != "B",
             player_board[row][col] != "C",
             player_board[row][col] != "F",
-            player_board[row][col] != "S"):
+            player_board[row][col] != "S"
+        ):
             break
 
     print("Computer has selected coordinates", row, col)
@@ -225,42 +227,41 @@ def check_comp_hit(player_board):
 
 if __name__ == "__main__":
 
-        user = get_username()
+    user = get_username()
 
-        guide_rule()
+    guide_rule()
 
-        player_board = create_battlefield(map_size)
-        comp_board = create_battlefield(map_size)
-        fake_board = create_battlefield(map_size)
+    player_board = create_battlefield(map_size)
+    comp_board = create_battlefield(map_size)
+    fake_board = create_battlefield(map_size)
 
-        occupied = set()
+    occupied = set()
 
-        print("Player's turn:")
-        player_ship_coordinate(player_board, occupied)
+    print("Player's turn:")
+    player_ship_coordinate(player_board, occupied)
+    display_battlefield(player_board)
+
+    print("\nComputer opponent's turn:")
+    comp_ship_coordinate(comp_board)
+    display_battlefield(fake_board)
+
+    player_hits = 0
+    comp_hits = 0
+
+    while True:
+        player_hits += check_player_hit(comp_board, fake_board, user)
+        if player_hits == 5:
+            print("Player has won - game over")
+            break
+
+        comp_hits += check_comp_hit(player_board)
+        if comp_hits == 5:
+            print("Computer has won - game over")
+            break
+
+        print(f"Player {user} board")
         display_battlefield(player_board)
 
-        print("\nComputer opponent's turn:")
-        comp_ship_coordinate(comp_board)
+        print(" ")
+        print("Computer board")
         display_battlefield(fake_board)
-
-        player_hits = 0
-        comp_hits = 0
-
-        while True:
-            player_hits += check_player_hit(comp_board, fake_board, user)
-            if player_hits == 5:
-                print("Player has won - game over")
-                break
-
-            comp_hits += check_comp_hit(player_board)
-            if comp_hits == 5:
-                print("Computer has won - game over")
-                break
-
-            print(f"Player {user} board")
-            display_battlefield(player_board)
-                    
-            print(" ")
-
-            print("Computer board")
-            display_battlefield(fake_board)
