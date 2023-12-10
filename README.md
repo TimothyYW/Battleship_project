@@ -20,17 +20,17 @@ Battleship, Frigate, Cruiser, Aircraft carrier, and (Sub)marine.
 
 The player will be able to see their ships placement after input valid coodinates.
 
-They will be market with their initial:
+They will be market with their initial and color:
 
-- Battleship = B
+- Battleship = B Red
 
-- Frigate = F
+- Frigate = F Cyan
 
-- Cruiser = C
+- Cruiser = C Green
 
-- Aircraft carrier = A
+- Aircraft carrier = A Blue
 
-- Submarine = S
+- Submarine = S Yellow
 
 After input the coordinate for each ships, player will be able to input coordinate to where they would like to fire a shot.
 
@@ -62,7 +62,24 @@ In order to win the game either player or computer must sunk all 5 ships.
 
 ![Computer board]
 
-- Error
+- Input valdation error:
+
+    - User need to enter the row and col from 0 to 9
+
+    - User need to pick a valid coordinate
+
+![Invalid message]
+
+- User of colorama:
+
+    - If player and computer missed the message will be highlighted by color
+
+![Missed message]
+
+    - If ship been hit the message will be highlighted also.
+
+![Example of ship been hit]
+
 ## Future feature
 
 - Adding different sizes for the ship.
@@ -71,6 +88,11 @@ In order to win the game either player or computer must sunk all 5 ships.
 
 ## Data Model
 
+The based model is from the battleship game with bigger map. Similar system which shows the player board while the empty board belong to the computer.
+
+The create_battlefield will be creating boards for both side, display_battlefield will be displaying player board and computer board, above the board will be written player turn and computer turn.
+
+The board model also make it easier to keep track of the situation combining with create_battlefield and display_battlefield function. 
 
 ## Testing
 
