@@ -148,7 +148,7 @@ def check_player_hit(comp_board, fake_board, user):
 
             if fake_board[row][col] in ship_initial or
             fake_board[row][col] == "*":
-                print("Please choose another coordinate.")
+            print("Please choose another coordinate.")
                 continue
 
             if comp_board[row][col] == "B":
