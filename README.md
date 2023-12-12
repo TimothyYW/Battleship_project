@@ -52,7 +52,9 @@ In order to win the game either player or computer must sunk all 5 ships.
 
     - Different initial for different ships.
 
-![Player board]
+![Ship Placement example](assets/images/Ship-placement.png)
+
+![Player board](assets/images/Player-board.png)
 
 - Computer board
 
@@ -60,25 +62,27 @@ In order to win the game either player or computer must sunk all 5 ships.
 
     - Computer board will only shows the ship that been hit.
 
-![Computer board]
+![Computer board](assets/images/Player-and-computer-board%20-%20Copy.png)
 
 - Input valdation error:
 
     - User need to enter the row and col from 0 to 9
 
+![If coordinate above 9 or below 0](assets/images/bigger-number%20-%20Copy.png)
+
     - User need to pick a valid coordinate
 
-![Invalid message]
+![Invalid message](assets/images/invalid-coordinate.png)
 
 - User of colorama:
 
     - If player and computer missed the message will be highlighted by color
 
-![Missed message]
+![Missed message](assets/images/Missed-message.png)
 
     - If ship been hit the message will be highlighted also.
 
-![Example of ship been hit]
+![Example of ship been hit](assets/images/Example-ship.png)
 
 ## Future feature
 
