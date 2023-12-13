@@ -162,6 +162,10 @@ Embedded diffrent colors
 
 https://www.youtube.com/shorts/GtGPq2eXBz0
 
+Username syntax
+
+https://www.tutorialspoint.com/how-to-get-the-current-username-in-python
+
 Battleship design suggestion
 
 https://stackoverflow.com/questions/28866424/making-simple-game-of-battleship
@@ -174,3 +178,4 @@ https://copyassignment.com/battleship-game-code-in-python/#google_vignette
 
 https://stackoverflow.com/questions/55759918/battleship-game-in-python-for-a-project-in-school
 
+https://stackoverflow.com/questions/77575338/battleship-project-with-python
